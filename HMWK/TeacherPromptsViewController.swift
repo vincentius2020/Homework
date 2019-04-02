@@ -14,7 +14,7 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var teacherPromptCollectionView: UICollectionView!
     
     var selectedPrompt: Prompt?
-    
+    var storageRef: StorageReference!
     var prompts: [Prompt] = []
     
     override func viewDidLoad() {
@@ -22,10 +22,11 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
 
         teacherPromptCollectionView.dataSource = self
         teacherPromptCollectionView.delegate = self
-        
+
         for course in FirebaseData.data.enrolledCourses! {
             prompts.append(contentsOf: course.coursePrompts)
         }
+        
         
         // Do any additional setup after loading the view.
         
@@ -44,16 +45,20 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return prompts.count
+        return FirebaseData.data.promptsInEnrolledCourses!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teacherPromptCell", for: indexPath) as! TeacherPromptCellCollectionViewCell
                 
-        let prompt = FirebaseData.data.promptsInEnrolledCourses?[indexPath.row]
+        let promptCell = FirebaseData.data.promptsInEnrolledCourses?[indexPath.row]
         
-        cell.teacherPromptCellImageView?.image = prompt?.promptImage
-        cell.teacherPromptCellLabel?.text = prompt?.promptTitle
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(promptCell!.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.teacherPromptCellImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+        cell.teacherPromptCellLabel?.text = promptCell?.promptTitle
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5
