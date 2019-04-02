@@ -13,8 +13,6 @@ class ReadFirebaseData {
     
     
     //this function downloads user data and courses
-    //this function downloads user data and courses
-
     typealias readCurrentUserClosure = (Bool) -> Void
     
     class func readCurrentUserWithCourses(userId: String, completion: @escaping readCurrentUserClosure) {

@@ -15,6 +15,7 @@ class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var studentCoursesCollectionView: UICollectionView!
     
     var selectedCourse: Course?
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,11 @@ class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, 
         
         //        let prompt = Singleton.singletonObject.allPrompts?.first(where: { $0.promptID == response?.promptID })
         
-        cell.studentCourseCellImageView?.image = course?.courseImage
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(course!.courseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.studentCourseCellImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
         cell.studentCourseCellLabel?.text = course?.courseName
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
