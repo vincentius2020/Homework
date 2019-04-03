@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class TeacherPromptResponsesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var teacherPromptResponsesCollectionView: UICollectionView!
+    @IBOutlet weak var promptImageView: UIImageView!
+    @IBOutlet weak var promptTitleLabel: UILabel!
+    @IBOutlet weak var promptCommentLabel: UILabel!
     
     var currentPrompt: Prompt!
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,17 @@ class TeacherPromptResponsesViewController: UIViewController, UICollectionViewDe
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.teacherPromptResponsesCollectionView.frame.size.width)/2, height: (self.teacherPromptResponsesCollectionView.frame.size.height/3))
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(currentPrompt.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        promptImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+                
+        promptTitleLabel.text = currentPrompt.promptTitle
+        promptCommentLabel.text = currentPrompt.promptComment
+        
+        promptImageView.layer.borderWidth = 2
+        promptImageView.layer.borderColor = UIColor.black.cgColor
         
 //        navigationItem.titleView = UIImageView(image: UIImage(named:"hmwklogo1"))
         
@@ -41,10 +57,14 @@ class TeacherPromptResponsesViewController: UIViewController, UICollectionViewDe
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teacherPromptResponseCell", for: indexPath) as! TeacherPromptResponsesCollectionViewCell
         
-        let response = currentPrompt.promptResponses[indexPath.row]
+        let responses = currentPrompt.promptResponses[indexPath.row]
         
-        cell.teacherPromptResponseImageView?.image = response.image
-        cell.teacherPromptResponseLabel?.text = response.comment
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(responses.responseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.teacherPromptResponseImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+        cell.teacherPromptResponseLabel?.text = responses.comment
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

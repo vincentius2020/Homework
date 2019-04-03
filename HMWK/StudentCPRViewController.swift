@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class StudentCPRViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var studentCPRCollectionView: UICollectionView!
     
     var currentPrompt: Prompt!
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,19 @@ class StudentCPRViewController: UIViewController, UICollectionViewDelegate, UICo
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.studentCPRCollectionView.frame.size.width)/2, height: (self.studentCPRCollectionView.frame.size.height/3))
+        
+//        promptTitleLabel.text = currentPrompt.promptTitle
+//        promptCommentLabel.text = currentPrompt.promptComment
+//
+//        storageRef = Storage.storage().reference()
+//        let imageReference = storageRef.child(currentPrompt.promptImagePath)
+//        let placeholderImage = UIImage(named: "flower.jpg")
+//        promptImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+//
+//        promptImageView.layer.cornerRadius = promptImageView.frame.size.width/2
+//
+//        promptImageView.layer.borderWidth = 4
+//        promptImageView.layer.borderColor = UIColor.black.cgColor
 
 //        navigationItem.titleView = UIImageView(image: UIImage(named:"hmwklogo1"))
 
@@ -42,7 +57,11 @@ class StudentCPRViewController: UIViewController, UICollectionViewDelegate, UICo
         
         let response = currentPrompt.promptResponses[indexPath.row]
         
-        cell.studentCPRImage?.image = response.image
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(currentPrompt.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.studentCPRImage.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
         cell.studentCPRLabel?.text = response.comment
         
         cell.layer.borderColor = UIColor.lightGray.cgColor

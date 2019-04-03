@@ -15,6 +15,7 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet weak var teacherCoursesCollectionView: UICollectionView!
     
     var selectedCourse: Course?
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +57,17 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teacherCourseCell", for: indexPath) as! TeacherCourseCellCollectionViewCell
         
-//        let course = Singleton.singletonObject.allCourses?[indexPath.row]
         let course = FirebaseData.data.enrolledCourses?[indexPath.row]
-
+        
 //        let prompt = Singleton.singletonObject.allPrompts?.first(where: { $0.promptID == response?.promptID })
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(course!.courseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.teacherCourseCellImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
 
-        cell.teacherCourseCellImageView?.image = course?.courseImage
+//        cell.teacherCourseCellImageView?.image = course?.courseImage
+        
         cell.teacherCourseCellLabel?.text = course?.courseName
 
         

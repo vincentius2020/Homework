@@ -12,25 +12,29 @@ import FirebaseUI
 
 class StudentCoursePromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
     @IBOutlet weak var studentCoursePromptsCollectionView: UICollectionView!
     @IBOutlet weak var courseImageView: UIImageView!
     @IBOutlet weak var courseTitleLabel: UILabel!
     
-    
     var currentCourse: Course!
-//    var selectedPrompt: Prompt?
+    var selectedPrompt: Prompt?
     var storageRef: StorageReference!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         studentCoursePromptsCollectionView.dataSource = self
         studentCoursePromptsCollectionView.delegate = self
         
+//        ReadFirebaseData.readCourse(courseId: currentCourse.courseID, completion: {(success) in
+//            if success {
+//                self.studentCoursePromptsCollectionView.reloadData()
+//            } else {
+//                print("Errrrrr")
+//            }
+//        })
+        
         let layout = self.studentCoursePromptsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.studentCoursePromptsCollectionView.frame.size.width)/2, height: (self.studentCoursePromptsCollectionView.frame.size.height/3))
@@ -39,8 +43,10 @@ class StudentCoursePromptsViewController: UIViewController, UICollectionViewDele
         let imageReference = storageRef.child(currentCourse.courseImagePath)
         let placeholderImage = UIImage(named: "flower.jpg")
         courseImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
-        
+                
         courseTitleLabel.text = currentCourse.courseName
+        
+        courseImageView.layer.cornerRadius = courseImageView.frame.size.width/2
         
         courseImageView.layer.borderWidth = 2
         courseImageView.layer.borderColor = UIColor.black.cgColor
@@ -62,10 +68,12 @@ class StudentCoursePromptsViewController: UIViewController, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studentCoursePromptCell", for: indexPath) as! StudentCoursePromptsCollectionViewCell
 
         let prompt = currentCourse.coursePrompts[indexPath.row]
-
-        //        let prompt = Singleton.singletonObject.allPrompts?.first(where: { $0.promptID == response?.promptID })
-
-        cell.studentCoursePromptCellImageView?.image = prompt.promptImage
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(prompt.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.studentCoursePromptCellImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
         cell.studentCoursePromptCellLabel?.text = prompt.promptTitle
 
 

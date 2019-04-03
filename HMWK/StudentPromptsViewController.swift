@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class StudentPromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var studentPromptsCollectionView: UICollectionView!
     
     var selectedPrompt: Prompt?
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +43,14 @@ class StudentPromptsViewController: UIViewController, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studentPromptCell", for: indexPath) as! StudentPromptsCollectionViewCell
         
-//        let prompt = Singleton.singletonObject.allPrompts?[indexPath.row]
-        let prompt = FirebaseData.data.promptsInEnrolledCourses?[indexPath.row]
+        let prompts = FirebaseData.data.promptsInEnrolledCourses?[indexPath.row]
         
-        cell.studentPromptCellImageView?.image = prompt?.promptImage
-        cell.studentPromptCellLabel?.text = prompt?.promptTitle
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(prompts!.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.studentPromptCellImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+        cell.studentPromptCellLabel?.text = prompts?.promptTitle
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 0.5

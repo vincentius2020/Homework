@@ -16,7 +16,39 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var teacherHomeTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var teacherHomeUsername: UILabel!
+    
+    var currentUser: User!
+    var storageRef: StorageReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        currentUser = FirebaseData.data.currentUser
+        
+        teacherHomeTableView.delegate = self
+        teacherHomeTableView.dataSource = self
+        
+        teacherHomeUsername.text = FirebaseData.data.currentUser?.username
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(currentUser.profileImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        teacherHomeImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+//        teacherHomeImageView.image = FirebaseData.data.currentUser?.profileImage
+        
+        editButton.setTitle("Edit",for: .normal)
+        
+        //        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
+        
+        teacherHomeImageView.layer.cornerRadius = teacherHomeImageView.frame.size.width/2
+        
+        teacherHomeImageView.layer.borderWidth = 4
+        teacherHomeImageView.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
+    
     @IBAction func editButtonPressed(_ sender: Any) {
         
         //create the controller
@@ -71,7 +103,6 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacherFeedCell", for: indexPath) as! TeacherHomeTableViewCell
         
@@ -86,36 +117,19 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.responseCellComment?.text = response?.comment
         cell.responseCellUsername?.text = response?.user.username
-        cell.teacherFeedImageView?.image = response?.image
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(response!.responseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.teacherFeedImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+//        cell.teacherFeedImageView?.image = response?.image
         
         cell.responseCellPromptTitle?.text = prompt?.promptTitle
         
         return cell
     }
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        teacherHomeTableView.delegate = self
-        teacherHomeTableView.dataSource = self
-        
-//        teacherHomeUsername.text = Singleton.singletonObject.teacherUser1.username
-        teacherHomeUsername.text = FirebaseData.data.currentUser?.username
-        
-//        teacherHomeImageView.image = Singleton.singletonObject.teacherUser1.profileImage
-        teacherHomeImageView.image = FirebaseData.data.currentUser?.profileImage
-        
-        editButton.setTitle("Edit",for: .normal)
-
-//        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
-                
-        teacherHomeImageView.layer.cornerRadius = teacherHomeImageView.frame.size.width/2
-        
-        teacherHomeImageView.layer.borderWidth = 4
-        teacherHomeImageView.layer.borderColor = UIColor.black.cgColor
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

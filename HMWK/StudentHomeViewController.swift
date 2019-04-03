@@ -16,6 +16,33 @@ class StudentHomeViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var studentHomeEditButton: UIButton!
     @IBOutlet weak var studentHomeTableView: UITableView!
     
+    var storageRef: StorageReference!
+    var currentUser: User!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        currentUser = FirebaseData.data.currentUser
+        
+        studentHomeTableView.delegate = self
+        studentHomeTableView.dataSource = self
+        
+        studentHomeUsername.text = FirebaseData.data.currentUser?.username
+        
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(currentUser!.profileImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        studentHomeImage.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+                
+        studentHomeImage.layer.cornerRadius = studentHomeImage.frame.size.width/2
+        studentHomeImage.layer.borderWidth = 4
+        studentHomeImage.layer.borderColor = UIColor.black.cgColor
+        
+        //        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
+        
+        // Do any additional setup after loading the view.
+    }
     
     @IBAction func editButtonClicked(_ sender: Any) {
         
@@ -83,35 +110,19 @@ class StudentHomeViewController: UIViewController, UITableViewDelegate, UITableV
         cell.studentResponseCellUsername?.text = response?.user.username
         cell.studentResponseCellComment?.text = response?.comment
         
-         cell.studentResponseCellPromptTitle?.text = prompt?.promptTitle
+        cell.studentResponseCellPromptTitle?.text = prompt?.promptTitle
+
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(response!.responseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.studentFeedImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
         
-        cell.studentFeedImageView?.image = response?.image
+//        cell.studentFeedImageView?.image = response?.image
         
         return cell
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        studentHomeTableView.delegate = self
-        studentHomeTableView.dataSource = self
-        
-//        studentHomeUsername.text = Singleton.singletonObject.studentUser1.username
-        studentHomeUsername.text = FirebaseData.data.currentUser?.username
-        
-//        studentHomeImage.image = Singleton.singletonObject.studentUser1.profileImage
-        studentHomeImage.image = FirebaseData.data.currentUser?.profileImage
-        
-        studentHomeImage.layer.cornerRadius = studentHomeImage.frame.size.width/2
-        studentHomeImage.layer.borderWidth = 4
-        studentHomeImage.layer.borderColor = UIColor.black.cgColor
-        
-//        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
-        
-        // Do any additional setup after loading the view.
-    }
     
 //    override func viewDidLoad() {
 //        super.viewDidLoad()

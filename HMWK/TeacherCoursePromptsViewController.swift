@@ -12,9 +12,12 @@ import Firebase
 class TeacherCoursePromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var teacherCoursePromptsCollectionView: UICollectionView!
+    @IBOutlet weak var courseImageView: UIImageView!
+    @IBOutlet weak var courseTitleLabel: UILabel!
     
     var currentCourse: Course!
     var selectedPrompt: Prompt?
+    var storageRef: StorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,19 @@ class TeacherCoursePromptsViewController: UIViewController, UICollectionViewDele
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.teacherCoursePromptsCollectionView.frame.size.width)/2, height: (self.teacherCoursePromptsCollectionView.frame.size.height/3))
         
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(currentCourse.courseImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        courseImageView.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+        
+
+        courseTitleLabel.text = currentCourse.courseName
+        
+        courseImageView.layer.cornerRadius = courseImageView.frame.size.width/2
+        
+        courseImageView.layer.borderWidth = 2
+        courseImageView.layer.borderColor = UIColor.black.cgColor
+        
 //        navigationItem.titleView = UIImageView(image: UIImage(named:"hmwklogo1"))
         
         // Do any additional setup after loading the view.
@@ -50,7 +66,11 @@ class TeacherCoursePromptsViewController: UIViewController, UICollectionViewDele
         
         let prompt = currentCourse.coursePrompts[indexPath.row]
         
-        cell.teacherCoursePromptImage?.image = prompt.promptImage
+        storageRef = Storage.storage().reference()
+        let imageReference = storageRef.child(prompt.promptImagePath)
+        let placeholderImage = UIImage(named: "flower.jpg")
+        cell.teacherCoursePromptImage.sd_setImage(with: imageReference, placeholderImage: placeholderImage)
+                
         cell.teacherCoursePromptLabel?.text = prompt.promptTitle
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
