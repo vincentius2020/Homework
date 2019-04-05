@@ -160,6 +160,7 @@ class ReadFirebaseData {
                     FirebaseData.data.currentUser?.enrolledCourses.first(where: { $0.courseID == courseId })?.coursePrompts.append(readPrompt)
                     
                     //FirebaseData.data.promptsInEnrolledCourses?.append(readPrompt)
+                    //
                 }
                 completion(true)
             }
