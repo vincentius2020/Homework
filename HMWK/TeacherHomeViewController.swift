@@ -39,7 +39,7 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
         
         editButton.setTitle("Edit",for: .normal)
         
-        //        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
+        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
         
         teacherHomeImageView.layer.cornerRadius = teacherHomeImageView.frame.size.width/2
         
