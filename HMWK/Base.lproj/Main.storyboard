@@ -1232,17 +1232,23 @@
                                 <color key="textColor" red="0.102821378" green="0.16262412879999999" blue="0.80371589470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNb-IR-439">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WNb-IR-439">
                                 <rect key="frame" x="71" y="311" width="233" height="33"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailLoginTextField:" destination="jBZ-dF-nA9" eventType="editingDidEnd" id="XAR-7Y-9Kn"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3U-df-6Nf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3U-df-6Nf">
                                 <rect key="frame" x="71" y="380" width="233" height="33"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordLoginTextField:" destination="jBZ-dF-nA9" eventType="editingDidEnd" id="LTw-ne-JVu"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-iP-IHr">
                                 <rect key="frame" x="71" y="421" width="232" height="35"/>
@@ -1254,6 +1260,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="jBZ-dF-nA9" eventType="touchUpInside" id="s8R-NF-hvP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username or Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwL-T5-aQK">
                                 <rect key="frame" x="71" y="283" width="233" height="20"/>
@@ -1277,6 +1286,9 @@
                                 <state key="normal" title="Create New Account">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccount:" destination="jBZ-dF-nA9" eventType="touchUpInside" id="Vau-74-VFq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99510231598984766" green="0.99510231598984766" blue="0.99510231598984766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1316,7 +1328,9 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="createAccountButton" destination="mwF-fP-rGT" id="xr3-b0-VXa"/>
+                        <outlet property="emailTextField" destination="WNb-IR-439" id="cna-Dz-cSP"/>
                         <outlet property="loginButton" destination="pWF-iP-IHr" id="6vc-yz-KHa"/>
+                        <outlet property="passwordTextField" destination="l3U-df-6Nf" id="jwe-XM-P19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUu-Xt-6Aq" userLabel="First Responder" sceneMemberID="firstResponder"/>

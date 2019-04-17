@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080327612266A1ED0060648D /* NotFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080327602266A1ED0060648D /* NotFirebaseAuth.swift */; };
+		080327632266AC3D0060648D /* CreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080327622266AC3D0060648D /* CreationView.xib */; };
+		080327652266AC9F0060648D /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080327642266AC9F0060648D /* CreationView.swift */; };
 		08063B4221BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */; };
 		08063B4421BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */; };
 		08063B4E21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */; };
@@ -73,6 +76,9 @@
 
 /* Begin PBXFileReference section */
 		04740943B9B7B3DCD9FA16CC /* Pods_HMWK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMWK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		080327602266A1ED0060648D /* NotFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFirebaseAuth.swift; sourceTree = "<group>"; };
+		080327622266AC3D0060648D /* CreationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationView.xib; sourceTree = "<group>"; };
+		080327642266AC9F0060648D /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
 		08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPromptsCollectionViewCell.swift; sourceTree = "<group>"; };
 		08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoursePromptsViewController.swift; sourceTree = "<group>"; };
@@ -223,8 +229,11 @@
 				08F2C144213337FE00269D9A /* Response.swift */,
 				08207062215FA22100E2B539 /* Singleton.swift */,
 				0827BDD1222395DE0051B994 /* FirebaseData.swift */,
+				080327602266A1ED0060648D /* NotFirebaseAuth.swift */,
 				0827BDD3222397A20051B994 /* ReadFirebaseData.swift */,
 				0827BDD5222398020051B994 /* WriteFirebaseData.swift */,
+				080327622266AC3D0060648D /* CreationView.xib */,
+				080327642266AC9F0060648D /* CreationView.swift */,
 			);
 			path = HMWK;
 			sourceTree = "<group>";
@@ -379,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08E16DB52121BE7B00AFFCF3 /* LaunchScreen.storyboard in Resources */,
+				080327632266AC3D0060648D /* CreationView.xib in Resources */,
 				08D5E27422238DA5001ED286 /* GoogleService-Info.plist in Resources */,
 				08E16DB22121BE7B00AFFCF3 /* Assets.xcassets in Resources */,
 				08E16DB02121BE7800AFFCF3 /* Main.storyboard in Resources */,
@@ -514,6 +524,7 @@
 				0827BDD6222398020051B994 /* WriteFirebaseData.swift in Sources */,
 				08D5E53021B024AC006E1414 /* StudentHomeTableViewCell.swift in Sources */,
 				080E8A1721C80DAA003DBB65 /* StudentCPRCollectionViewCell.swift in Sources */,
+				080327652266AC9F0060648D /* CreationView.swift in Sources */,
 				0827BDD2222395DE0051B994 /* FirebaseData.swift in Sources */,
 				083579D921C7AF3400561030 /* TeacherCoursePromptsCollectionViewCell.swift in Sources */,
 				08C33F1521A5C1D2007143F3 /* StudentCoursesViewController.swift in Sources */,
@@ -528,6 +539,7 @@
 				08E16DAB2121BE7800AFFCF3 /* AppDelegate.swift in Sources */,
 				08063B4221BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift in Sources */,
 				0820705F2142BF2500E2B539 /* TeacherPromptsViewController.swift in Sources */,
+				080327612266A1ED0060648D /* NotFirebaseAuth.swift in Sources */,
 				0827BDD4222397A20051B994 /* ReadFirebaseData.swift in Sources */,
 				085F33442141A70B009E2FDA /* Prompt.swift in Sources */,
 				08C33F1721A5C1DD007143F3 /* StudentPromptsViewController.swift in Sources */,

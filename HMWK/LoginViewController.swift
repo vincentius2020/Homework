@@ -14,17 +14,47 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
+    @IBAction func login(_ sender: Any) {
+        NotFirebaseAuth.login(withEmail: emailTextField.text!, password: passwordTextField.text!, completionHandler: {(success) in
+            if success {
+                print("successfully logged in")
+                
+            } else {
+                print("error")
+            }
+        })
+    }
+    
+    
+    @IBAction func createAccount(_ sender: Any) {
+        NotFirebaseAuth.signUp(withEmail: emailTextField.text!, password: passwordTextField.text!, name: "Vince", userType: "Teacher",
+                completionHandler: {(success) in
+                    if success {
+                        print("successfully logged in")
+                                    
+                    } else {
+                        print("error")
+                    }
+        })
+        
+//        Create name textField
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loginButton.layer.cornerRadius = loginButton.frame.size.width/20
         createAccountButton.layer.cornerRadius = createAccountButton.frame.size.width/20
         
         loginButton.layer.borderWidth = 0.5
-        createAccountButton.layer.borderColor = UIColor.black.cgColor
+        loginButton.layer.borderColor = UIColor.black.cgColor
         
-        loginButton.layer.borderWidth = 0.5
+        createAccountButton.layer.borderWidth = 0.5
         createAccountButton.layer.borderColor = UIColor.black.cgColor
         
         navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
