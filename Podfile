@@ -11,6 +11,7 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
 pod 'KeychainAccess'
+pod 'Firebase/Auth'
 
   target 'HMWKTests' do
     inherit! :search_paths
