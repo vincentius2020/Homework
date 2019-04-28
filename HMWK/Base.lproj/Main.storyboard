@@ -1221,7 +1221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hmwklogo1" translatesAutoresizingMaskIntoConstraints="NO" id="us1-Xi-57X">
-                                <rect key="frame" x="35" y="124" width="305" height="105"/>
+                                <rect key="frame" x="35" y="124" width="305.00000000000023" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="fN9-fJ-RdC"/>
                                 </constraints>
@@ -1237,18 +1237,12 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="emailLoginTextField:" destination="jBZ-dF-nA9" eventType="editingDidEnd" id="XAR-7Y-9Kn"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3U-df-6Nf">
                                 <rect key="frame" x="71" y="380" width="233" height="33"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="passwordLoginTextField:" destination="jBZ-dF-nA9" eventType="editingDidEnd" id="LTw-ne-JVu"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWF-iP-IHr">
                                 <rect key="frame" x="71" y="421" width="232" height="35"/>
@@ -1261,7 +1255,7 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="jBZ-dF-nA9" eventType="touchUpInside" id="s8R-NF-hvP"/>
+                                    <action selector="login:" destination="jBZ-dF-nA9" eventType="touchUpInside" id="pjf-cg-JjA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username or Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwL-T5-aQK">
@@ -1331,11 +1325,13 @@
                         <outlet property="emailTextField" destination="WNb-IR-439" id="cna-Dz-cSP"/>
                         <outlet property="loginButton" destination="pWF-iP-IHr" id="6vc-yz-KHa"/>
                         <outlet property="passwordTextField" destination="l3U-df-6Nf" id="jwe-XM-P19"/>
+                        <segue destination="bU4-I4-GB9" kind="show" identifier="toTeacherHome" id="gEP-r2-H0Z"/>
+                        <segue destination="WU7-NN-lDm" kind="show" identifier="toStudentHome" id="0oi-rp-sqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUu-Xt-6Aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3833" y="3116"/>
+            <point key="canvasLocation" x="-3852" y="3135"/>
         </scene>
         <!--Item-->
         <scene sceneID="14v-vI-Nyb">

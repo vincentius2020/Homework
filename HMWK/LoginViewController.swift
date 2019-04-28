@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
@@ -25,6 +25,19 @@ class LoginViewController: UIViewController {
                 
             } else {
                 print("error")
+            }
+        })
+        
+        
+        NotFirebaseAuth.login(withEmail: emailTextField.text!, password: passwordTextField.text!, completionHandler: {(success) in
+            if success {
+                if (FirebaseData.data.currentUser?.userType == "Teacher") {
+                    self.performSegue(withIdentifier: "toTeacherHome", sender: self)
+                } else if (FirebaseData.data.currentUser?.userType == "Student") {
+                    self.performSegue(withIdentifier: "toStudentHome", sender: self)
+                } else {
+                    print("error")
+                }
             }
         })
     }
@@ -47,6 +60,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
         loginButton.layer.cornerRadius = loginButton.frame.size.width/20
         createAccountButton.layer.cornerRadius = createAccountButton.frame.size.width/20
