@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPb-YH-thy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="1693"/>
+            <point key="canvasLocation" x="-943.20000000000005" y="1692.5037481259371"/>
         </scene>
         <!--Teacher Course Prompts View Controller-->
         <scene sceneID="dKj-mt-v1r">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBF-nb-v3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="1693"/>
+            <point key="canvasLocation" x="-55.200000000000003" y="1692.5037481259371"/>
         </scene>
         <!--TeacherCPR View Controller-->
         <scene sceneID="awU-kw-x4Q">
@@ -461,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bh-Ve-1Ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="1021"/>
+            <point key="canvasLocation" x="-943.20000000000005" y="1020.5397301349326"/>
         </scene>
         <!--Item-->
         <scene sceneID="xi6-KM-ICc">
@@ -1437,11 +1437,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWD-Oy-f25">
-                                <rect key="frame" x="119.5" y="221" width="136" height="60"/>
+                                <rect key="frame" x="29" y="55" width="136" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="5VV-EW-uXh"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="Teacher">
@@ -1455,12 +1452,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-DY-GX9">
-                                <rect key="frame" x="119.5" y="344" width="136" height="60"/>
+                                <rect key="frame" x="210" y="55" width="136" height="60"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="lDX-5t-2ad"/>
-                                    <constraint firstAttribute="height" constant="60" id="r8W-Ji-HPu"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Student">
                                     <color key="titleColor" red="1" green="0.73674614890000001" blue="0.91063847129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1475,12 +1468,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BWD-Oy-f25" firstAttribute="top" secondItem="ItL-EF-SZt" secondAttribute="top" constant="201" id="5wX-YH-9c6"/>
-                            <constraint firstItem="ItL-EF-SZt" firstAttribute="trailing" secondItem="BbV-DY-GX9" secondAttribute="trailing" constant="119.5" id="Dr9-df-uHF"/>
-                            <constraint firstItem="ItL-EF-SZt" firstAttribute="trailing" secondItem="BWD-Oy-f25" secondAttribute="trailing" constant="119.5" id="LCe-pT-mHo"/>
-                            <constraint firstItem="BbV-DY-GX9" firstAttribute="leading" secondItem="ItL-EF-SZt" secondAttribute="leading" constant="119.5" id="gl0-ka-8qV"/>
-                            <constraint firstItem="BbV-DY-GX9" firstAttribute="top" secondItem="BWD-Oy-f25" secondAttribute="bottom" constant="63" id="lUz-kt-ocT"/>
-                            <constraint firstItem="BWD-Oy-f25" firstAttribute="leading" secondItem="ItL-EF-SZt" secondAttribute="leading" constant="119.5" id="qTK-6t-Ka3"/>
+                            <constraint firstItem="BbV-DY-GX9" firstAttribute="top" secondItem="ItL-EF-SZt" secondAttribute="top" constant="35" id="5Hr-ta-o6e"/>
+                            <constraint firstItem="BbV-DY-GX9" firstAttribute="leading" secondItem="BWD-Oy-f25" secondAttribute="trailing" constant="45" id="D3E-J5-5yz"/>
+                            <constraint firstItem="BWD-Oy-f25" firstAttribute="leading" secondItem="ItL-EF-SZt" secondAttribute="leading" constant="29" id="Eav-8Q-bra"/>
+                            <constraint firstItem="ItL-EF-SZt" firstAttribute="trailing" secondItem="BbV-DY-GX9" secondAttribute="trailing" constant="29" id="Ttz-sP-Dda"/>
+                            <constraint firstItem="BbV-DY-GX9" firstAttribute="leading" secondItem="BWD-Oy-f25" secondAttribute="trailing" constant="45" id="Ulz-nx-2Sd"/>
+                            <constraint firstItem="BbV-DY-GX9" firstAttribute="leading" secondItem="ItL-EF-SZt" secondAttribute="leading" constant="210" id="gl0-ka-8qV"/>
+                            <constraint firstItem="BbV-DY-GX9" firstAttribute="top" secondItem="BWD-Oy-f25" secondAttribute="bottom" constant="-60" id="lUz-kt-ocT"/>
+                            <constraint firstItem="BWD-Oy-f25" firstAttribute="top" secondItem="ItL-EF-SZt" secondAttribute="top" constant="35" id="zeT-1c-bSY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ItL-EF-SZt"/>
                     </view>
@@ -1491,7 +1486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LF9-ae-J69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5129" y="3116"/>
+            <point key="canvasLocation" x="-5130.3999999999996" y="3115.5922038980511"/>
         </scene>
     </scenes>
     <resources>

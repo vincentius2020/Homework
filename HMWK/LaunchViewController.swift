@@ -98,7 +98,8 @@ class LaunchViewController: UIViewController {
         studentLaunchButton.layer.borderColor = UIColor.black.cgColor
         
         navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
-                
+        
+        
         // Do any additional setup after loading the view.
     }
     
