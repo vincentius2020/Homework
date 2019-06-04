@@ -13,12 +13,7 @@ import FirebaseUI
 class CreationView: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var imageLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
     
     override init(frame: CGRect) { 
         super.init(frame: frame)

@@ -14,11 +14,14 @@ class LaunchViewController: UIViewController {
 
     @IBOutlet weak var teacherLaunchButton: UIButton!
     @IBOutlet weak var studentLaunchButton: UIButton!
+    @IBOutlet weak var creationView: CreationView!
     
 //      This is my comment for testing purposes!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        creationView.imageLabel.text = "sup"
         
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
