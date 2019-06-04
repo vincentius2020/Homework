@@ -8,10 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
-class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate {
 
     @IBOutlet weak var teacherPromptCollectionView: UICollectionView!
+    @IBOutlet weak var createPromptView: CreatePromptView!
     
     var selectedPrompt: Prompt?
     var storageRef: StorageReference!
@@ -23,6 +25,22 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         teacherPromptCollectionView.dataSource = self
         teacherPromptCollectionView.delegate = self
 
+        createPromptView.courseNameLabel.text = "Select a Course"
+        createPromptView.coursePicker.delegate = self
+        createPromptView.promptTitleLabel.text = "Prompt Title"
+        createPromptView.promptImageLabel.text = "Prompt Image"
+        createPromptView.promptSummaryLabel.text = "Prompt Summary"
+        createPromptView.promptTitleTextField.delegate = self
+        createPromptView.promptSummaryTextField.delegate = self
+        createPromptView.promptImageView.image = UIImage(named: "flower")
+        
+        createPromptView.createPromptButton.layer.cornerRadius = createPromptView.createPromptButton.frame.size.width/20
+        createPromptView.createPromptButton.layer.borderWidth = 0.5
+        createPromptView.createPromptButton.layer.borderColor = UIColor.black.cgColor
+        
+        createPromptView.imagePickerButton.setTitle("Choose new photo", for: .normal)
+        createPromptView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
+        
         for course in FirebaseData.data.enrolledCourses! {
             prompts.append(contentsOf: course.coursePrompts)
         }
@@ -35,10 +53,44 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.teacherPromptCollectionView.frame.size.width)/2, height: (self.teacherPromptCollectionView.frame.size.height/3))
         
-//        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
+        navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
         
     }
 
+    
+    @objc func imagePickerButtonPressed(_ sender: Any) {
+        
+        let pickerController = UIImagePickerController()
+        
+        pickerController.delegate = self
+        
+        if TARGET_OS_SIMULATOR == 1 {
+            pickerController.sourceType = .photoLibrary
+        } else {
+            pickerController.sourceType = .camera
+            pickerController.cameraDevice = .front
+            pickerController.cameraCaptureMode = .photo
+        }
+        
+        self.present(pickerController, animated:true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // get image from info dictionary
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            //imageView has an image property set to be the image the user chose
+            createPromptView.promptImageView.image = image
+            
+        }
+        
+        //dismiss the image picker
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

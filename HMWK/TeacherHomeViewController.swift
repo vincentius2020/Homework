@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate {
     
     @IBOutlet weak var teacherHomeImageView: UIImageView!
     @IBOutlet weak var teacherHomeTableView: UITableView!
