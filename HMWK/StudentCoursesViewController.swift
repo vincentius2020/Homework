@@ -10,9 +10,10 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var studentCoursesCollectionView: UICollectionView!
+    @IBOutlet weak var joinCourseView: JoinCourseView!
     
     var selectedCourse: Course?
     var storageRef: StorageReference!
@@ -23,7 +24,16 @@ class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, 
         studentCoursesCollectionView.dataSource = self
         studentCoursesCollectionView.delegate = self
         
+        joinCourseView.joinCourseLabel.text = "Join a Course"
+        joinCourseView.courseIDLabel.text = "Course ID"
+        joinCourseView.courseIDTextField.delegate = self
+        
+        joinCourseView.joinCourseButton.layer.cornerRadius = joinCourseView.joinCourseButton.frame.size.width/20
+        joinCourseView.joinCourseButton.layer.borderWidth = 0.5
+        joinCourseView.joinCourseButton.layer.borderColor = UIColor.black.cgColor
+        
         let layout = self.studentCoursesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (self.studentCoursesCollectionView.frame.size.width)/2, height: (self.studentCoursesCollectionView.frame.size.height/3))

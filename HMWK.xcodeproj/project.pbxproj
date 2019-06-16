@@ -10,6 +10,10 @@
 		080327612266A1ED0060648D /* NotFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080327602266A1ED0060648D /* NotFirebaseAuth.swift */; };
 		080327632266AC3D0060648D /* CreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080327622266AC3D0060648D /* CreationView.xib */; };
 		080327652266AC9F0060648D /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080327642266AC9F0060648D /* CreationView.swift */; };
+		0804D85A22B6C4310033A0DF /* CreateResponseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0804D85922B6C4310033A0DF /* CreateResponseView.xib */; };
+		0804D85C22B6C5130033A0DF /* CreateResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0804D85B22B6C5130033A0DF /* CreateResponseView.swift */; };
+		0804D85E22B6D7E10033A0DF /* JoinCourseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0804D85D22B6D7E10033A0DF /* JoinCourseView.xib */; };
+		0804D86022B6D8390033A0DF /* JoinCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0804D85F22B6D8390033A0DF /* JoinCourseView.swift */; };
 		08063B4221BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */; };
 		08063B4421BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */; };
 		08063B4E21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */; };
@@ -83,6 +87,10 @@
 		080327602266A1ED0060648D /* NotFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFirebaseAuth.swift; sourceTree = "<group>"; };
 		080327622266AC3D0060648D /* CreationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationView.xib; sourceTree = "<group>"; };
 		080327642266AC9F0060648D /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
+		0804D85922B6C4310033A0DF /* CreateResponseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateResponseView.xib; sourceTree = "<group>"; };
+		0804D85B22B6C5130033A0DF /* CreateResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResponseView.swift; sourceTree = "<group>"; };
+		0804D85D22B6D7E10033A0DF /* JoinCourseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoinCourseView.xib; sourceTree = "<group>"; };
+		0804D85F22B6D8390033A0DF /* JoinCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCourseView.swift; sourceTree = "<group>"; };
 		08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
 		08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPromptsCollectionViewCell.swift; sourceTree = "<group>"; };
 		08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoursePromptsViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +254,10 @@
 				085AE0CE228DD0CE009460B6 /* CreateCourseView.swift */,
 				085AE0D0228EF270009460B6 /* CreatePromptView.xib */,
 				085AE0D2228EF297009460B6 /* CreatePromptView.swift */,
+				0804D85922B6C4310033A0DF /* CreateResponseView.xib */,
+				0804D85B22B6C5130033A0DF /* CreateResponseView.swift */,
+				0804D85D22B6D7E10033A0DF /* JoinCourseView.xib */,
+				0804D85F22B6D8390033A0DF /* JoinCourseView.swift */,
 			);
 			path = HMWK;
 			sourceTree = "<group>";
@@ -404,7 +416,9 @@
 				080327632266AC3D0060648D /* CreationView.xib in Resources */,
 				08D5E27422238DA5001ED286 /* GoogleService-Info.plist in Resources */,
 				08E16DB22121BE7B00AFFCF3 /* Assets.xcassets in Resources */,
+				0804D85A22B6C4310033A0DF /* CreateResponseView.xib in Resources */,
 				08E16DB02121BE7800AFFCF3 /* Main.storyboard in Resources */,
+				0804D85E22B6D7E10033A0DF /* JoinCourseView.xib in Resources */,
 				085AE0D1228EF270009460B6 /* CreatePromptView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +544,7 @@
 				087F2549225A6C8700AED00F /* LoginViewController.swift in Sources */,
 				083579DF21C7B91800561030 /* TeacherCPRCollectionViewCell.swift in Sources */,
 				080E8A1B21C83040003DBB65 /* StudentPromptResponsesCollectionViewCell.swift in Sources */,
+				0804D85C22B6C5130033A0DF /* CreateResponseView.swift in Sources */,
 				08FD475F21BDAA4E00C5DC1A /* StudentCoursePromptsCollectionViewCell.swift in Sources */,
 				0824AC0521CBDF2F000B419C /* TeacherPromptResponsesViewController.swift in Sources */,
 				08207063215FA22200E2B539 /* Singleton.swift in Sources */,
@@ -541,6 +556,7 @@
 				080327652266AC9F0060648D /* CreationView.swift in Sources */,
 				0827BDD2222395DE0051B994 /* FirebaseData.swift in Sources */,
 				083579D921C7AF3400561030 /* TeacherCoursePromptsCollectionViewCell.swift in Sources */,
+				0804D86022B6D8390033A0DF /* JoinCourseView.swift in Sources */,
 				08C33F1521A5C1D2007143F3 /* StudentCoursesViewController.swift in Sources */,
 				0820705B2142B7E600E2B539 /* TeacherCourseCellCollectionViewCell.swift in Sources */,
 				080E8A1921C83029003DBB65 /* StudentPromptResponsesViewController.swift in Sources */,

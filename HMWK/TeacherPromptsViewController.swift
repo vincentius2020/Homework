@@ -10,18 +10,41 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate {
+class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
 
     @IBOutlet weak var teacherPromptCollectionView: UICollectionView!
     @IBOutlet weak var createPromptView: CreatePromptView!
+    
+//    let courseOptions = ["Science", "Math", "English"]
     
     var selectedPrompt: Prompt?
     var storageRef: StorageReference!
     var prompts: [Prompt] = []
     
+    
+    let courseOptions = ["Econ", "AP Micro", "AP HUG"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return courseOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return courseOptions[row]
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createPromptView.coursePicker.delegate = self
+        createPromptView.coursePicker.dataSource = self
+        
         teacherPromptCollectionView.dataSource = self
         teacherPromptCollectionView.delegate = self
 
@@ -38,7 +61,7 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         createPromptView.createPromptButton.layer.borderWidth = 0.5
         createPromptView.createPromptButton.layer.borderColor = UIColor.black.cgColor
         
-        createPromptView.imagePickerButton.setTitle("Choose new photo", for: .normal)
+        createPromptView.imagePickerButton.setTitle("Choose new image", for: .normal)
         createPromptView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
         
         for course in FirebaseData.data.enrolledCourses! {
@@ -56,7 +79,8 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         navigationItem.titleView = UIImageView(image: UIImage(named: "hmwklogo1"))
         
     }
-
+    
+    
     
     @objc func imagePickerButtonPressed(_ sender: Any) {
         
@@ -74,6 +98,8 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         
         self.present(pickerController, animated:true, completion: nil)
     }
+    
+    
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

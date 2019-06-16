@@ -34,11 +34,9 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         createCourseView.createCourseButton.layer.borderWidth = 0.5
         createCourseView.createCourseButton.layer.borderColor = UIColor.black.cgColor
         
-        createCourseView.imagePickerButton.setTitle("Choose new photo", for: .normal)
+        createCourseView.imagePickerButton.setTitle("Choose new image", for: .normal)
         createCourseView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
         
-//        createCourseView.isVisible = false
-
         ReadFirebaseData.readCurrentUserWithCourses(userId: (FirebaseData.data.currentUser?.userEmail)!, completion: {(success) in
             if success {
                 print ("successfully wrote user")
@@ -76,6 +74,8 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         
         self.present(pickerController, animated:true, completion: nil)
     }
+    
+    
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
