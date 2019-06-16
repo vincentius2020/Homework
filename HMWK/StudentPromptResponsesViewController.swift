@@ -9,12 +9,13 @@
 import UIKit
 import Firebase
 
-class StudentPromptResponsesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class StudentPromptResponsesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var studentPromptResponsesCollectionView: UICollectionView!
     @IBOutlet weak var promptImageView: UIImageView!
     @IBOutlet weak var promptTitleLabel: UILabel!
     @IBOutlet weak var promptCommentLabel: UILabel!
+    @IBOutlet weak var createResponseView: CreateResponseView!
     
     var currentPrompt: Prompt!
     var storageRef: StorageReference!
@@ -24,6 +25,22 @@ class StudentPromptResponsesViewController: UIViewController, UICollectionViewDe
 
         studentPromptResponsesCollectionView.dataSource = self
         studentPromptResponsesCollectionView.delegate = self
+        
+        createResponseView.newResponseLabel.text = "New Response"
+        createResponseView.imageLabel.text = "Image"
+        
+        createResponseView.responseImageView.image = UIImage(named: "flower")
+        
+        createResponseView.imagePickerButton.setTitle("Choose new image", for: .normal)
+        createResponseView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
+        
+        createResponseView.explanationLabel.text = "Explanation"
+        
+        createResponseView.explanationTextField.delegate = self
+        
+        createResponseView.submitButton.layer.cornerRadius = createResponseView.submitButton.frame.size.width/20
+        createResponseView.submitButton.layer.borderWidth = 0.5
+        createResponseView.submitButton.layer.borderColor = UIColor.black.cgColor
         
         let layout = self.studentPromptResponsesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -47,6 +64,23 @@ class StudentPromptResponsesViewController: UIViewController, UICollectionViewDe
         // Do any additional setup after loading the view.
     }
     
+    
+    @objc func imagePickerButtonPressed(_ sender: Any) {
+        
+        let pickerController = UIImagePickerController()
+        
+        pickerController.delegate = self
+        
+        if TARGET_OS_SIMULATOR == 1 {
+            pickerController.sourceType = .photoLibrary
+        } else {
+            pickerController.sourceType = .camera
+            pickerController.cameraDevice = .front
+            pickerController.cameraCaptureMode = .photo
+        }
+        
+        self.present(pickerController, animated:true, completion: nil)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentPrompt.promptResponses.count

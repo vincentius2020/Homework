@@ -914,6 +914,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Qr-cU-aLf" customClass="JoinCourseView" customModule="HMWK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="35" width="375" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -926,12 +931,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Courses" id="YDa-o3-Q0X"/>
                     <connections>
+                        <outlet property="joinCourseView" destination="1Qr-cU-aLf" id="lwT-tc-aHH"/>
                         <outlet property="studentCoursesCollectionView" destination="rxG-M8-fi3" id="vad-bi-13U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVa-Bc-c6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="4630"/>
+            <point key="canvasLocation" x="-943.20000000000005" y="4629.5352323838088"/>
         </scene>
         <!--Student Course Prompts View Controller-->
         <scene sceneID="B8U-6X-JwU">
@@ -1195,6 +1201,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hII-bh-BGj" customClass="CreateResponseView" customModule="HMWK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="375" height="450"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1217,6 +1228,7 @@
                         <viewLayoutGuide key="safeArea" id="FX0-9q-PZV"/>
                     </view>
                     <connections>
+                        <outlet property="createResponseView" destination="hII-bh-BGj" id="GuX-Vu-3og"/>
                         <outlet property="promptCommentLabel" destination="fUZ-fN-pJf" id="pZ0-JN-fa6"/>
                         <outlet property="promptImageView" destination="33N-nU-STb" id="z2S-eD-uPq"/>
                         <outlet property="promptTitleLabel" destination="KoY-eS-Qga" id="4jo-vr-V2H"/>
@@ -1225,7 +1237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZp-Nn-o8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="5346"/>
+            <point key="canvasLocation" x="-55.200000000000003" y="5345.577211394303"/>
         </scene>
         <!--Login-->
         <scene sceneID="2E7-Eb-5Lk">
@@ -1518,6 +1530,6 @@
         <image name="hmwklogo1" width="849" height="274"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nAx-ia-SPr"/>
+        <segue reference="rUd-gy-IiU"/>
     </inferredMetricsTieBreakers>
 </document>
