@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-YU-TIx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="505"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oCH-Z8-AgQ">
                                     <size key="itemSize" width="180" height="200"/>
@@ -89,23 +89,37 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-mO-jZV">
+                                <rect key="frame" x="16" y="72" width="343" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Create New Course"/>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dky-aM-xv0" customClass="CreateCourseView" customModule="HMWK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="32" width="375" height="603"/>
+                                <rect key="frame" x="24" y="134" width="325" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VRI-gj-Sct" firstAttribute="trailing" secondItem="yeT-mO-jZV" secondAttribute="trailing" constant="16" id="1Ga-py-0g8"/>
                             <constraint firstItem="Fug-YU-TIx" firstAttribute="trailing" secondItem="VRI-gj-Sct" secondAttribute="trailing" id="Mre-iJ-57n"/>
-                            <constraint firstAttribute="bottom" secondItem="Fug-YU-TIx" secondAttribute="bottom" id="b6n-Qg-oin"/>
-                            <constraint firstItem="Fug-YU-TIx" firstAttribute="top" secondItem="VRI-gj-Sct" secondAttribute="top" id="lri-jj-Y7Z"/>
+                            <constraint firstItem="Fug-YU-TIx" firstAttribute="top" secondItem="yeT-mO-jZV" secondAttribute="bottom" constant="8" id="ODF-V8-Or8"/>
+                            <constraint firstItem="Fug-YU-TIx" firstAttribute="leading" secondItem="VRI-gj-Sct" secondAttribute="leading" id="SsV-DT-Idt"/>
+                            <constraint firstItem="Fug-YU-TIx" firstAttribute="bottom" secondItem="VRI-gj-Sct" secondAttribute="bottom" id="StG-lG-GoI"/>
+                            <constraint firstItem="yeT-mO-jZV" firstAttribute="leading" secondItem="VRI-gj-Sct" secondAttribute="leading" constant="16" id="UOl-H0-AVp"/>
+                            <constraint firstItem="VRI-gj-Sct" firstAttribute="trailing" secondItem="yeT-mO-jZV" secondAttribute="trailing" constant="16" id="V4O-xw-AQh"/>
+                            <constraint firstItem="Fug-YU-TIx" firstAttribute="trailing" secondItem="VRI-gj-Sct" secondAttribute="trailing" id="aDs-06-G5c"/>
+                            <constraint firstItem="Fug-YU-TIx" firstAttribute="top" secondItem="yeT-mO-jZV" secondAttribute="bottom" constant="8" id="eJN-CT-J5e"/>
                             <constraint firstItem="Fug-YU-TIx" firstAttribute="leading" secondItem="VRI-gj-Sct" secondAttribute="leading" id="pi1-RT-AtS"/>
+                            <constraint firstItem="yeT-mO-jZV" firstAttribute="leading" secondItem="VRI-gj-Sct" secondAttribute="leading" constant="16" id="ror-Wp-5RI"/>
+                            <constraint firstItem="yeT-mO-jZV" firstAttribute="top" secondItem="VRI-gj-Sct" secondAttribute="top" constant="8" id="tIV-pC-bb7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRI-gj-Sct"/>
                     </view>
                     <navigationItem key="navigationItem" title="Courses" id="hEQ-bh-60O"/>
                     <connections>
+                        <outlet property="createCourseButton" destination="yeT-mO-jZV" id="oH1-ap-em9"/>
                         <outlet property="createCourseView" destination="dky-aM-xv0" id="Pkv-Yl-TWr"/>
                         <outlet property="teacherCoursesCollectionView" destination="Fug-YU-TIx" id="gRO-Xs-g8D"/>
                         <segue destination="Ruj-KQ-2S5" kind="show" identifier="teacherCourseToPrompt" id="Hf5-Ai-tI0"/>
@@ -517,7 +531,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iys-sa-rqD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FI9-7f-H3X">
                                     <size key="itemSize" width="180" height="200"/>
@@ -568,26 +582,33 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atC-Aw-cYg" customClass="CreatePromptView" customModule="HMWK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-pI-GCr">
+                                <rect key="frame" x="16" y="67" width="343" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Create New Prompt"/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atC-Aw-cYg" customClass="CreatePromptView" customModule="HMWK" customModuleProvider="target">
+                                <rect key="frame" x="12" y="83" width="350" height="515"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Iys-sa-rqD" firstAttribute="bottom" secondItem="e9v-7Z-nhg" secondAttribute="bottom" id="6jg-3i-uUY"/>
-                            <constraint firstItem="atC-Aw-cYg" firstAttribute="top" secondItem="e9v-7Z-nhg" secondAttribute="top" constant="-64" id="AVr-Sf-rfp"/>
                             <constraint firstItem="Iys-sa-rqD" firstAttribute="trailing" secondItem="e9v-7Z-nhg" secondAttribute="trailing" id="IVd-Tt-XrE"/>
                             <constraint firstItem="Iys-sa-rqD" firstAttribute="leading" secondItem="e9v-7Z-nhg" secondAttribute="leading" id="JPL-DX-7zi"/>
-                            <constraint firstItem="atC-Aw-cYg" firstAttribute="bottom" secondItem="e9v-7Z-nhg" secondAttribute="bottom" id="PAQ-U5-eGo"/>
-                            <constraint firstItem="atC-Aw-cYg" firstAttribute="leading" secondItem="e9v-7Z-nhg" secondAttribute="leading" id="bxA-cz-1Cf"/>
-                            <constraint firstItem="Iys-sa-rqD" firstAttribute="top" secondItem="e9v-7Z-nhg" secondAttribute="top" id="dIj-4k-Q0E"/>
-                            <constraint firstItem="atC-Aw-cYg" firstAttribute="trailing" secondItem="e9v-7Z-nhg" secondAttribute="trailing" id="tZH-Tf-EzJ"/>
+                            <constraint firstItem="wQX-pI-GCr" firstAttribute="top" secondItem="e9v-7Z-nhg" secondAttribute="top" constant="3" id="WfD-Bm-vW1"/>
+                            <constraint firstItem="Iys-sa-rqD" firstAttribute="top" secondItem="wQX-pI-GCr" secondAttribute="bottom" constant="8" id="gmN-0m-73Z"/>
+                            <constraint firstItem="e9v-7Z-nhg" firstAttribute="trailing" secondItem="wQX-pI-GCr" secondAttribute="trailing" constant="16" id="kq5-7w-Aco"/>
+                            <constraint firstItem="wQX-pI-GCr" firstAttribute="leading" secondItem="e9v-7Z-nhg" secondAttribute="leading" constant="16" id="r0v-Po-OlN"/>
+                            <constraint firstItem="Iys-sa-rqD" firstAttribute="top" secondItem="wQX-pI-GCr" secondAttribute="bottom" constant="8" id="uPR-I6-iT2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e9v-7Z-nhg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prompts" id="4KW-QH-ZQH"/>
                     <connections>
+                        <outlet property="createPromptButton" destination="wQX-pI-GCr" id="65M-M1-Ipi"/>
                         <outlet property="createPromptView" destination="atC-Aw-cYg" id="Qrv-9q-dhm"/>
                         <outlet property="teacherPromptCollectionView" destination="Iys-sa-rqD" id="W3w-sh-UER"/>
                         <segue destination="3Wy-yD-EmL" kind="show" identifier="teacherPromptToResponses" id="paK-og-bLi"/>
@@ -862,7 +883,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rxG-M8-fi3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="117" width="375" height="501"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="14D-9u-HGE">
                                     <size key="itemSize" width="180" height="200"/>
@@ -914,23 +935,33 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-7D-hX0">
+                                <rect key="frame" x="26" y="76" width="323" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Join a Course"/>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Qr-cU-aLf" customClass="JoinCourseView" customModule="HMWK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="35" width="375" height="600"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="23" y="96" width="325" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="rxG-M8-fi3" secondAttribute="bottom" id="B7p-P6-0d9"/>
+                            <constraint firstItem="rxG-M8-fi3" firstAttribute="top" secondItem="J0b-7D-hX0" secondAttribute="bottom" constant="8" id="FLi-9W-PTH"/>
+                            <constraint firstItem="Khm-8O-Ei8" firstAttribute="trailing" secondItem="J0b-7D-hX0" secondAttribute="trailing" constant="26" id="HcQ-4z-2qz"/>
+                            <constraint firstItem="rxG-M8-fi3" firstAttribute="top" secondItem="J0b-7D-hX0" secondAttribute="bottom" constant="8" id="Wty-Iy-ag8"/>
                             <constraint firstItem="rxG-M8-fi3" firstAttribute="leading" secondItem="Khm-8O-Ei8" secondAttribute="leading" id="X4V-4F-rmk"/>
-                            <constraint firstItem="rxG-M8-fi3" firstAttribute="top" secondItem="Khm-8O-Ei8" secondAttribute="top" id="cUh-up-oww"/>
+                            <constraint firstItem="J0b-7D-hX0" firstAttribute="top" secondItem="Khm-8O-Ei8" secondAttribute="top" constant="12" id="a4O-RS-SdE"/>
+                            <constraint firstItem="J0b-7D-hX0" firstAttribute="leading" secondItem="Khm-8O-Ei8" secondAttribute="leading" constant="26" id="fgg-mN-MNK"/>
+                            <constraint firstItem="rxG-M8-fi3" firstAttribute="bottom" secondItem="Khm-8O-Ei8" secondAttribute="bottom" id="zDX-eN-dWD"/>
                             <constraint firstItem="rxG-M8-fi3" firstAttribute="trailing" secondItem="Khm-8O-Ei8" secondAttribute="trailing" id="zT3-pU-btF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Khm-8O-Ei8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Courses" id="YDa-o3-Q0X"/>
                     <connections>
+                        <outlet property="addCourseButton" destination="J0b-7D-hX0" id="JUm-v3-AWq"/>
                         <outlet property="joinCourseView" destination="1Qr-cU-aLf" id="lwT-tc-aHH"/>
                         <outlet property="studentCoursesCollectionView" destination="rxG-M8-fi3" id="vad-bi-13U"/>
                     </connections>
@@ -1049,8 +1080,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oVF-yW-NdL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oVF-yW-NdL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gyc-R1-ypM">
                                     <size key="itemSize" width="180" height="200"/>
@@ -1119,7 +1150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fU0-oT-KV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="5346"/>
+            <point key="canvasLocation" x="-943.20000000000005" y="5345.577211394303"/>
         </scene>
         <!--Student Prompt Responses View Controller-->
         <scene sceneID="k5a-yt-GDB">
@@ -1130,7 +1161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WKF-QA-GYx">
-                                <rect key="frame" x="0.0" y="217" width="375" height="450"/>
+                                <rect key="frame" x="0.0" y="255" width="375" height="363"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ex3-FV-S49">
                                     <size key="itemSize" width="180" height="200"/>
@@ -1196,14 +1227,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="promptComment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUZ-fN-pJf">
-                                <rect key="frame" x="124" y="126" width="235" height="64"/>
+                                <rect key="frame" x="124" y="126" width="235" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iay-b8-U7D">
+                                <rect key="frame" x="16" y="215" width="343" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Add a Response"/>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hII-bh-BGj" customClass="CreateResponseView" customModule="HMWK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="108" width="375" height="450"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="24" y="109" width="325" height="450"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -1211,16 +1247,21 @@
                         <constraints>
                             <constraint firstItem="33N-nU-STb" firstAttribute="top" secondItem="FX0-9q-PZV" secondAttribute="top" constant="26" id="3KL-Zn-Plu"/>
                             <constraint firstItem="FX0-9q-PZV" firstAttribute="trailing" secondItem="fUZ-fN-pJf" secondAttribute="trailing" constant="16" id="4oj-mG-iF6"/>
+                            <constraint firstItem="iay-b8-U7D" firstAttribute="top" secondItem="33N-nU-STb" secondAttribute="bottom" constant="25" id="G8W-XZ-RXF"/>
                             <constraint firstItem="KoY-eS-Qga" firstAttribute="top" secondItem="FX0-9q-PZV" secondAttribute="top" constant="34" id="H7k-t9-Suy"/>
                             <constraint firstItem="fUZ-fN-pJf" firstAttribute="top" secondItem="KoY-eS-Qga" secondAttribute="bottom" constant="8" id="IYL-aL-dwq"/>
-                            <constraint firstAttribute="bottom" secondItem="WKF-QA-GYx" secondAttribute="bottom" id="ZeY-Y6-y8D"/>
+                            <constraint firstItem="WKF-QA-GYx" firstAttribute="top" secondItem="iay-b8-U7D" secondAttribute="bottom" constant="8" id="JoA-bi-6gT"/>
+                            <constraint firstItem="iay-b8-U7D" firstAttribute="top" secondItem="fUZ-fN-pJf" secondAttribute="bottom" constant="71" id="Mih-ej-bFR"/>
+                            <constraint firstItem="WKF-QA-GYx" firstAttribute="top" secondItem="iay-b8-U7D" secondAttribute="bottom" constant="8" id="Sj9-dM-q9g"/>
+                            <constraint firstAttribute="bottom" secondItem="WKF-QA-GYx" secondAttribute="bottom" constant="49" id="ZeY-Y6-y8D"/>
                             <constraint firstItem="fUZ-fN-pJf" firstAttribute="leading" secondItem="33N-nU-STb" secondAttribute="trailing" constant="8" id="b7u-W9-cC0"/>
-                            <constraint firstItem="WKF-QA-GYx" firstAttribute="top" secondItem="33N-nU-STb" secondAttribute="bottom" constant="27" id="bKl-5F-EVp"/>
                             <constraint firstItem="WKF-QA-GYx" firstAttribute="leading" secondItem="FX0-9q-PZV" secondAttribute="leading" id="cB4-Cs-eLU"/>
                             <constraint firstItem="FX0-9q-PZV" firstAttribute="trailing" secondItem="KoY-eS-Qga" secondAttribute="trailing" constant="16" id="d7s-za-qu7"/>
+                            <constraint firstItem="iay-b8-U7D" firstAttribute="top" secondItem="33N-nU-STb" secondAttribute="bottom" constant="25" id="eaX-gf-wMr"/>
+                            <constraint firstItem="iay-b8-U7D" firstAttribute="leading" secondItem="FX0-9q-PZV" secondAttribute="leading" constant="16" id="g92-jN-MPb"/>
                             <constraint firstItem="KoY-eS-Qga" firstAttribute="leading" secondItem="33N-nU-STb" secondAttribute="trailing" constant="8" id="hgR-wn-pYa"/>
-                            <constraint firstItem="WKF-QA-GYx" firstAttribute="top" secondItem="fUZ-fN-pJf" secondAttribute="bottom" constant="27" id="jUn-Eh-giW"/>
                             <constraint firstItem="WKF-QA-GYx" firstAttribute="trailing" secondItem="FX0-9q-PZV" secondAttribute="trailing" id="kBl-Um-dsf"/>
+                            <constraint firstItem="FX0-9q-PZV" firstAttribute="trailing" secondItem="iay-b8-U7D" secondAttribute="trailing" constant="16" id="lyO-zR-Adt"/>
                             <constraint firstItem="33N-nU-STb" firstAttribute="leading" secondItem="FX0-9q-PZV" secondAttribute="leading" constant="16" id="nLt-t6-mjE"/>
                             <constraint firstItem="KoY-eS-Qga" firstAttribute="leading" secondItem="33N-nU-STb" secondAttribute="trailing" constant="8" id="w7n-iJ-NhV"/>
                             <constraint firstItem="fUZ-fN-pJf" firstAttribute="top" secondItem="KoY-eS-Qga" secondAttribute="bottom" constant="8" id="xpJ-9N-rBl"/>
@@ -1229,6 +1270,7 @@
                     </view>
                     <connections>
                         <outlet property="createResponseView" destination="hII-bh-BGj" id="GuX-Vu-3og"/>
+                        <outlet property="newResponseButton" destination="iay-b8-U7D" id="Fbb-ji-mIF"/>
                         <outlet property="promptCommentLabel" destination="fUZ-fN-pJf" id="pZ0-JN-fa6"/>
                         <outlet property="promptImageView" destination="33N-nU-STb" id="z2S-eD-uPq"/>
                         <outlet property="promptTitleLabel" destination="KoY-eS-Qga" id="4jo-vr-V2H"/>
@@ -1248,7 +1290,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hmwklogo1" translatesAutoresizingMaskIntoConstraints="NO" id="us1-Xi-57X">
-                                <rect key="frame" x="35" y="124" width="305" height="105"/>
+                                <rect key="frame" x="35" y="124" width="305.00000000000023" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="fN9-fJ-RdC"/>
                                 </constraints>

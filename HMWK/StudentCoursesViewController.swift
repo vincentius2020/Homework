@@ -14,6 +14,8 @@ class StudentCoursesViewController: UIViewController, UICollectionViewDelegate, 
 
     @IBOutlet weak var studentCoursesCollectionView: UICollectionView!
     @IBOutlet weak var joinCourseView: JoinCourseView!
+    @IBOutlet weak var addCourseButton: UIButton!
+    
     
     var selectedCourse: Course?
     var storageRef: StorageReference!

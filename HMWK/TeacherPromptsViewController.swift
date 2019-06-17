@@ -15,6 +15,7 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
 
     @IBOutlet weak var teacherPromptCollectionView: UICollectionView!
     @IBOutlet weak var createPromptView: CreatePromptView!
+    @IBOutlet weak var createPromptButton: UIButton!
     
 //    let courseOptions = ["Science", "Math", "English"]
     
