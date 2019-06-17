@@ -16,6 +16,7 @@ class StudentPromptResponsesViewController: UIViewController, UICollectionViewDe
     @IBOutlet weak var promptTitleLabel: UILabel!
     @IBOutlet weak var promptCommentLabel: UILabel!
     @IBOutlet weak var createResponseView: CreateResponseView!
+    @IBOutlet weak var newResponseButton: UIButton!
     
     var currentPrompt: Prompt!
     var storageRef: StorageReference!
