@@ -143,6 +143,27 @@ class WriteFirebaseData {
         })
     }
     
+    //uploading course image
+    class func uploadCourseImage(image:UIImage, userUID:String, courseUID:String, completion: @escaping uploadImageClosure) {
+        let storageRef = Storage.storage().reference()
+        
+        let storagePath = "courses/\(courseUID)/courseImage"
+        let imageData:Data = UIImageJPEGRepresentation(image, 0.2)!
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        storageRef.child(storagePath).putData(imageData, metadata: metadata, completion: {(metadata, error) in
+            
+            if error == nil {
+                completion(true, storagePath)
+            }
+            else {
+                completion(false, nil)
+            }
+        })
+    }
+    
     //uploading response image
     class func uploadResponseImage(image:UIImage, userUID:String, promptUID: String, responseUID:String, completion: @escaping uploadImageClosure) {
         let storageRef = Storage.storage().reference()
