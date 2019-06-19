@@ -38,6 +38,12 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         createCourseView.imagePickerButton.setTitle("Choose new image", for: .normal)
         createCourseView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
         
+        createCourseView.isHidden = true
+        
+        createCourseButton.addTarget(self, action: #selector(createCourseButtonPressed), for: .touchUpInside)
+        
+        createCourseView.createCourseButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
+        
         ReadFirebaseData.readCurrentUserWithCourses(userId: (FirebaseData.data.currentUser?.userEmail)!, completion: {(success) in
             if success {
                 print ("successfully wrote user")
@@ -58,7 +64,75 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         
     }
     
+    
+    
+    @objc func createCourseButtonPressed(_ sender: Any) {
+        
+        createCourseView.isHidden = false
+    }
 
+    
+    @objc func submitButtonPressed(_ sender: Any) {
+        
+        let courseName = createCourseView.courseTitleTextField.text!
+        
+        let course = Course(courseID: courseName, aCourseImagePath: "courses/\(courseName)/courseImage", courseImage: UIImage(), courseName: courseName, coursePrompts: [], teacherID: FirebaseData.data.currentUser!.userEmail)
+        
+        //upload image first
+        //unwrap optional image
+        if let image = self.createCourseView.courseImageView.image {
+            
+            WriteFirebaseData.uploadCourseImage(image: image, userUID: FirebaseData.data.currentUser!.userEmail, courseUID: course.courseID, completion: {
+                (success, storagePath) in
+                
+                //image upload successful, so now the course can upload
+                if success {
+                    WriteFirebaseData.writeCourse(course, completion: { success in
+                        
+                        if success {
+                            //create success alert with action -- action has handler because we want it to perform a task
+                            let alert = UIAlertController(title: "Congrats", message: "Your course was successfully created", preferredStyle: .alert)
+                            let okayAction = UIAlertAction(title: "Cool", style: .default, handler: { action in
+                                self.createCourseView.isHidden = true
+                            })
+                            alert.addAction(okayAction)
+                            
+                            //present the alert
+                            self.present(alert, animated: true, completion:nil)
+                            
+                        } else {
+                            //create fail alert with 2 actions -- cancel action has a nil handler since we don't want it to perform anything
+                            let alert = UIAlertController(title: "Oh no!", message: "Your course did not get saved. Try again?", preferredStyle: .alert)
+                            let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { action in
+                                //fill later
+                            })
+                            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                            alert.addAction(tryAgainAction)
+                            alert.addAction(cancelAction)
+                            
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    })
+                    
+                } else {
+                    //same as above...will extract later
+                    let alert = UIAlertController(title: "Oh no!", message: "Your course did not get saved. Try again?", preferredStyle: .alert)
+                    let tryAgainAction = UIAlertAction(title: "Try again", style: .default, handler: { action in
+                        //fill later
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    alert.addAction(tryAgainAction)
+                    alert.addAction(cancelAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+        
+    }
+    
+    
+    
     @objc func imagePickerButtonPressed(_ sender: Any) {
         
         let pickerController = UIImagePickerController()
@@ -92,6 +166,7 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
             //dismiss the image picker
             dismiss(animated: true, completion: nil)
     }
+    
     
     
     override func didReceiveMemoryWarning() {
