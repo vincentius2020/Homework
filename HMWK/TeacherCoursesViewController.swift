@@ -44,15 +44,19 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         
         createCourseView.createCourseButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
         
-        ReadFirebaseData.readCurrentUserWithCourses(userId: (FirebaseData.data.currentUser?.userEmail)!, completion: {(success) in
+
+        ReadFirebaseData.readCurrentUserWithCourses(userId: (FirebaseData.data.currentUser?.userEmail)!, completion: { [weak self] (success) in
             if success {
                 print ("successfully wrote user")
                 
                 FirebaseData.data.enrolledCourses = FirebaseData.data.currentUser?.enrolledCourses
-                    
-                }
+            
+                //need to reload our collection view to show the downloaded data
+                self?.teacherCoursesCollectionView.reloadData()
+            }
             }
         )
+
         
         
         let layout = self.teacherCoursesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
