@@ -48,6 +48,13 @@ class WriteFirebaseData {
                 completion(false)
             } else {
                 //success in writing basic course data, so now add prompts
+                
+                //if no prompts, write is complete
+                if course.coursePrompts.count == 0 {
+                    completion(true)
+                }
+                
+                //else we have to count the prompts
                 var promptsWritten = 0
                 var promptsNotWritten = 0
                 
@@ -61,7 +68,7 @@ class WriteFirebaseData {
                         }
                         
                         if (promptsWritten + promptsNotWritten) == prompt.promptResponses.count {
-                            //this function is complete. However, there is a chance that not all prompts were written
+                            //this function is complete. However, there is a chance that not all prompts were sucessfully written
                             completion(true)
                         }
                     })
@@ -81,6 +88,13 @@ class WriteFirebaseData {
                 completion(false)
             } else {
                 //success in writing basic prompt data, so now add responses
+                
+                //if no responses, write is complete
+                if prompt.promptResponses.count == 0 {
+                    completion(true)
+                }
+                
+                //else we have to count the responses
                 var responsesWritten = 0
                 var responsesNotWritten = 0
                 
@@ -93,7 +107,7 @@ class WriteFirebaseData {
                         }
                         
                         if (responsesWritten + responsesNotWritten) == prompt.promptResponses.count {
-                            //this function is complete. However, there is a chance that not all responses were written
+                            //this function is complete. However, there is a chance that not all responses were successfully written
                             completion(true)
                         }
                     })
