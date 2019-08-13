@@ -65,6 +65,12 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         createPromptView.imagePickerButton.setTitle("Choose new image", for: .normal)
         createPromptView.imagePickerButton.addTarget(self, action: #selector(imagePickerButtonPressed), for: .touchUpInside)
         
+        createPromptView.isHidden = true
+        
+        createPromptButton.addTarget(self, action: #selector(createPromptButtonPressed), for: .touchUpInside)
+        
+        createPromptView.createPromptButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
+        
         for course in FirebaseData.data.enrolledCourses! {
             prompts.append(contentsOf: course.coursePrompts)
         }
@@ -81,6 +87,22 @@ class TeacherPromptsViewController: UIViewController, UICollectionViewDelegate, 
         
     }
     
+    
+    
+    @objc func createPromptButtonPressed(_sender: Any) {
+        
+        createPromptView.isHidden = false
+    }
+    
+    
+    @objc func submitButtonPressed(_sender: Any) {
+        
+        let promptName = createPromptView.promptTitleTextField.text!
+        
+        let prompt = Prompt(promptID: promptName, courseID: "", aPromptImagePath: "prompts/\(promptName)/promptImage", promptImage: UIImage(), promptTitle: promptName, promptComment: "", promptResponses: [])
+    }
+    
+//    LEFT OFF HERE
     
     
     @objc func imagePickerButtonPressed(_ sender: Any) {

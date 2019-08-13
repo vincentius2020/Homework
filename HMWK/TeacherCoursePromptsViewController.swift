@@ -36,7 +36,7 @@ class TeacherCoursePromptsViewController: UIViewController, UICollectionViewDele
         let layout = self.teacherCoursePromptsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.teacherCoursePromptsCollectionView.frame.size.width)/2, height: (self.teacherCoursePromptsCollectionView.frame.size.height/3))
+        layout.itemSize = CGSize(width: (self.teacherCoursePromptsCollectionView.frame.size.width)/2, height: (self.teacherCoursePromptsCollectionView.frame.size.height/2.5))
         
         storageRef = Storage.storage().reference()
         let imageReference = storageRef.child(currentCourse.courseImagePath)

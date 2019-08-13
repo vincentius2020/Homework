@@ -29,7 +29,7 @@ class TeacherPromptResponsesViewController: UIViewController, UICollectionViewDe
         
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.teacherPromptResponsesCollectionView.frame.size.width)/2, height: (self.teacherPromptResponsesCollectionView.frame.size.height/3))
+        layout.itemSize = CGSize(width: (self.teacherPromptResponsesCollectionView.frame.size.width)/2, height: (self.teacherPromptResponsesCollectionView.frame.size.height/2.5))
         
         storageRef = Storage.storage().reference()
         let imageReference = storageRef.child(currentPrompt.promptImagePath)

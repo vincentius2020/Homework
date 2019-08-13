@@ -28,7 +28,7 @@ class TeacherCPRViewController: UIViewController, UICollectionViewDelegate, UICo
         let layout = self.teacherCPRCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.teacherCPRCollectionView.frame.size.width)/2, height: (self.teacherCPRCollectionView.frame.size.height/3))
+        layout.itemSize = CGSize(width: (self.teacherCPRCollectionView.frame.size.width)/2, height: (self.teacherCPRCollectionView.frame.size.height/2.5))
 
         promptTitleLabel.text = currentPrompt.promptTitle
         promptCommentLabel.text = currentPrompt.promptComment
