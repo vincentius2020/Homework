@@ -19,17 +19,20 @@ class ReadFirebaseData {
         
         //first set the user to nil
         FirebaseData.data.currentUser = nil
-        
-        FirebaseData.data.db.collection("users").getDocuments() { (querySnapshot, err) in
+        FirebaseData.data.enrolledCourses = []
+        FirebaseData.data.promptsInEnrolledCourses = []
+        FirebaseData.data.responsesInEnrolledCourses = []
+        FirebaseData.data.db.collection("users").document("\(userId)").getDocument() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 completion(false)
             } else {
-                for userDict in querySnapshot!.documents {
+                //querySnapshot?.data()
+               // for userDict in querySnapshot {
                     
-                    let enrolledCoursesRefs = userDict.data()["enrolledCourses"]
+                   let enrolledCoursesRefs = querySnapshot?.data()!["enrolledCourses"]
                     
-                    let user = readUserBasics(userDict.data())
+                let user = readUserBasics((querySnapshot?.data())!)
                     
                     FirebaseData.data.currentUser = user
                     
@@ -46,7 +49,7 @@ class ReadFirebaseData {
                         }
                     })
                 }
-            }
+            //}
         }
     }
     

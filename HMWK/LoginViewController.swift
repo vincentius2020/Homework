@@ -21,16 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func login(_ sender: Any) {
         NotFirebaseAuth.login(withEmail: emailTextField.text!, password: passwordTextField.text!, completionHandler: {(success) in
             if success {
-                print("successfully logged in")
-                
-            } else {
-                print("error")
-            }
-        })
-        
-        
-        NotFirebaseAuth.login(withEmail: emailTextField.text!, password: passwordTextField.text!, completionHandler: {(success) in
-            if success {
                 if (FirebaseData.data.currentUser?.userType == "Teacher") {
                     self.performSegue(withIdentifier: "toTeacherHome", sender: self)
                 } else if (FirebaseData.data.currentUser?.userType == "Student") {

@@ -44,7 +44,6 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         
         createCourseView.createCourseButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
         
-
         ReadFirebaseData.readCurrentUserWithCourses(userId: (FirebaseData.data.currentUser?.userEmail)!, completion: { [weak self] (success) in
             if success {
                 print ("successfully wrote user")
@@ -186,9 +185,7 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teacherCourseCell", for: indexPath) as! TeacherCourseCellCollectionViewCell
         
         let course = FirebaseData.data.enrolledCourses?[indexPath.row]
-        
-//        let prompt = Singleton.singletonObject.allPrompts?.first(where: { $0.promptID == response?.promptID })
-        
+           
         storageRef = Storage.storage().reference()
         let imageReference = storageRef.child(course!.courseImagePath)
         let placeholderImage = UIImage(named: "flower.jpg")
@@ -208,7 +205,7 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        selectedCourse = Singleton.singletonObject.allCourses?[indexPath.row]
+
         selectedCourse = FirebaseData.data.enrolledCourses?[indexPath.row]
         
         self.performSegue(withIdentifier: "teacherCourseToPrompt", sender: self)
@@ -234,17 +231,3 @@ class TeacherCoursesViewController: UIViewController, UICollectionViewDelegate, 
     */
 
 }
-
-//func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    selectedCourse = Singleton.singletonObject.studentUser1Courses?[indexPath.row]
-//
-//    self.performSegue(withIdentifier: "studentCourseToPrompt", sender: self)
-//}
-//
-//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if (segue.identifier == "studentCourseToPrompt") {
-//        if let newVC = segue.destination as? StudentCoursePromptsViewController {
-//            newVC.currentCourse = selectedCourse
-//        }
-//    }
-//}
