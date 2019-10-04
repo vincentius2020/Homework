@@ -19,34 +19,35 @@ class ReadFirebaseData {
         
         //first set the user to nil
         FirebaseData.data.currentUser = nil
-        
-        FirebaseData.data.db.collection("users").getDocuments() { (querySnapshot, err) in
+        FirebaseData.data.enrolledCourses = []
+        FirebaseData.data.promptsInEnrolledCourses = []
+        FirebaseData.data.responsesInEnrolledCourses = []
+        FirebaseData.data.db.collection("users").document("\(userId)").getDocument() { (doc, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 completion(false)
             } else {
-                for userDict in querySnapshot!.documents {
-                    
-                    let enrolledCoursesRefs = userDict.data()["enrolledCourses"]
-                    
-                    let user = readUserBasics(userDict.data())
-                    
-                    FirebaseData.data.currentUser = user
-                    
-                    readCoursesWithNoPrompts(courseRefs: enrolledCoursesRefs as! [DocumentReference], completion: {(success) in
-                        if success == true {
-                            
-                            NotificationCenter.default.post(name: Notification.Name("currentUserBasicDataRead"), object: nil)
-                            
-                            completion(true)
-                            
-                        } else {
-                            print("error reading courses")
-                            completion(false)
-                        }
-                    })
-                }
+                
+                let enrolledCoursesRefs = doc?.data()!["enrolledCourses"]
+                
+                let user = readUserBasics((doc?.data())!)
+                
+                FirebaseData.data.currentUser = user
+                
+                readCoursesWithNoPrompts(courseRefs: enrolledCoursesRefs as! [DocumentReference], completion: {(success) in
+                    if success == true {
+                        
+                        NotificationCenter.default.post(name: Notification.Name("currentUserBasicDataRead"), object: nil)
+                        
+                        completion(true)
+                        
+                    } else {
+                        print("error reading courses")
+                        completion(false)
+                    }
+                })
             }
+            
         }
     }
     

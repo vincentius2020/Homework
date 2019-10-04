@@ -212,30 +212,8 @@
 				08E16DAC2121BE7800AFFCF3 /* ViewController.swift */,
 				084EAE7B21AB21E100AD6DDA /* LaunchViewController.swift */,
 				087F2548225A6C8700AED00F /* LoginViewController.swift */,
-				08F2C138213315EB00269D9A /* TeacherHomeViewController.swift */,
-				08F2C13E21331A7C00269D9A /* TeacherHomeTableViewCell.swift */,
-				0820705C2142B89F00E2B539 /* TeacherCoursesViewController.swift */,
-				0820705A2142B7E600E2B539 /* TeacherCourseCellCollectionViewCell.swift */,
-				083579D621C2F67000561030 /* TeacherCoursePromptsViewController.swift */,
-				083579D821C7AF3400561030 /* TeacherCoursePromptsCollectionViewCell.swift */,
-				083579DC21C7B86100561030 /* TeacherCPRViewController.swift */,
-				083579DE21C7B91800561030 /* TeacherCPRCollectionViewCell.swift */,
-				0820705E2142BF2500E2B539 /* TeacherPromptsViewController.swift */,
-				082070602142BF5200E2B539 /* TeacherPromptCellCollectionViewCell.swift */,
-				0824AC0421CBDF2F000B419C /* TeacherPromptResponsesViewController.swift */,
-				0824AC0621CBDF45000B419C /* TeacherPromptResponsesCollectionViewCell.swift */,
-				08C33F1221A5C15C007143F3 /* StudentHomeViewController.swift */,
-				08D5E52F21B024AC006E1414 /* StudentHomeTableViewCell.swift */,
-				08C33F1421A5C1D2007143F3 /* StudentCoursesViewController.swift */,
-				08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */,
-				08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */,
-				08FD475E21BDAA4E00C5DC1A /* StudentCoursePromptsCollectionViewCell.swift */,
-				080E8A1421C80D98003DBB65 /* StudentCPRViewController.swift */,
-				080E8A1621C80DAA003DBB65 /* StudentCPRCollectionViewCell.swift */,
-				08C33F1621A5C1DD007143F3 /* StudentPromptsViewController.swift */,
-				08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */,
-				080E8A1821C83029003DBB65 /* StudentPromptResponsesViewController.swift */,
-				080E8A1A21C83040003DBB65 /* StudentPromptResponsesCollectionViewCell.swift */,
+				CE7A2B172346E646008A0C2C /* TeacherControllers+Cells */,
+				CE7A2B162346E630008A0C2C /* StudentControllers+Cells */,
 				08E16DB12121BE7B00AFFCF3 /* Assets.xcassets */,
 				08E16DB32121BE7B00AFFCF3 /* LaunchScreen.storyboard */,
 				08E16DB62121BE7B00AFFCF3 /* Info.plist */,
@@ -301,6 +279,44 @@
 				0E6DB8FDAFEAFE56DAF541C4 /* Pods_HMWKUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE7A2B162346E630008A0C2C /* StudentControllers+Cells */ = {
+			isa = PBXGroup;
+			children = (
+				08C33F1221A5C15C007143F3 /* StudentHomeViewController.swift */,
+				08D5E52F21B024AC006E1414 /* StudentHomeTableViewCell.swift */,
+				08C33F1421A5C1D2007143F3 /* StudentCoursesViewController.swift */,
+				08063B4121BBD7C000D67A8C /* StudentCoursesCollectionViewCell.swift */,
+				08063B4D21BD9F6700D67A8C /* StudentCoursePromptsViewController.swift */,
+				08FD475E21BDAA4E00C5DC1A /* StudentCoursePromptsCollectionViewCell.swift */,
+				080E8A1421C80D98003DBB65 /* StudentCPRViewController.swift */,
+				080E8A1621C80DAA003DBB65 /* StudentCPRCollectionViewCell.swift */,
+				08C33F1621A5C1DD007143F3 /* StudentPromptsViewController.swift */,
+				08063B4321BBE44000D67A8C /* StudentPromptsCollectionViewCell.swift */,
+				080E8A1821C83029003DBB65 /* StudentPromptResponsesViewController.swift */,
+				080E8A1A21C83040003DBB65 /* StudentPromptResponsesCollectionViewCell.swift */,
+			);
+			path = "StudentControllers+Cells";
+			sourceTree = "<group>";
+		};
+		CE7A2B172346E646008A0C2C /* TeacherControllers+Cells */ = {
+			isa = PBXGroup;
+			children = (
+				08F2C138213315EB00269D9A /* TeacherHomeViewController.swift */,
+				08F2C13E21331A7C00269D9A /* TeacherHomeTableViewCell.swift */,
+				0820705C2142B89F00E2B539 /* TeacherCoursesViewController.swift */,
+				0820705A2142B7E600E2B539 /* TeacherCourseCellCollectionViewCell.swift */,
+				083579D621C2F67000561030 /* TeacherCoursePromptsViewController.swift */,
+				083579D821C7AF3400561030 /* TeacherCoursePromptsCollectionViewCell.swift */,
+				083579DC21C7B86100561030 /* TeacherCPRViewController.swift */,
+				083579DE21C7B91800561030 /* TeacherCPRCollectionViewCell.swift */,
+				0820705E2142BF2500E2B539 /* TeacherPromptsViewController.swift */,
+				082070602142BF5200E2B539 /* TeacherPromptCellCollectionViewCell.swift */,
+				0824AC0421CBDF2F000B419C /* TeacherPromptResponsesViewController.swift */,
+				0824AC0621CBDF45000B419C /* TeacherPromptResponsesCollectionViewCell.swift */,
+			);
+			path = "TeacherControllers+Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

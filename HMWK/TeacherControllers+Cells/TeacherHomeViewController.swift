@@ -98,7 +98,7 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//      return Singleton.singletonObject.allResponses!.count
+        
         return FirebaseData.data.responsesInEnrolledCourses!.count
     }
     
@@ -106,10 +106,8 @@ class TeacherHomeViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacherFeedCell", for: indexPath) as! TeacherHomeTableViewCell
         
-//      let response = Singleton.singletonObject.allResponses?[indexPath.row]
         let response = FirebaseData.data.responsesInEnrolledCourses?[indexPath.row]
-        
-//      let prompt = Singleton.singletonObject.allPrompts?.first(where: { $0.promptID == response?.promptID })
+    
         let prompt = FirebaseData.data.promptsInEnrolledCourses?.first(where: { $0.promptID == response?.promptID })
         
         cell.layer.borderColor = UIColor.lightGray.cgColor
